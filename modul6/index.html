@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .form-row .input-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button#btnSimpan {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button#btnBatal {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Pemesanan</h1>
+    <form id="formPemesanan">
+        <div class="form-row">
+            <div class="input-group">
+                <label for="idPemesan">Id Pemesan:</label>
+                <input type="text" id="idPemesan" name="idPemesan" value="1" readonly>
+            </div>
+            <div class="input-group">
+                <label for="namaPemesan">Nama Pemesan:</label>
+                <input type="text" id="namaPemesan" name="namaPemesan" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group">
+                <label for="jenisKelamin">Jenis Kelamin:</label>
+                <select id="jenisKelamin" name="jenisKelamin" required>
+                    <option value="">Pilih</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="nomorIdentitas">Nomor Identitas:</label>
+                <input type="text" id="nomorIdentitas" name="nomorIdentitas" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group">
+                <label for="tipeKamar">Tipe Kamar:</label>
+                <select id="tipeKamar" name="tipeKamar" required>
+                    <option value="">Pilih</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Family">Family</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="harga">Harga:</label>
+                <input type="number" id="harga" name="harga" readonly>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group">
+                <label for="tanggalPesan">Tanggal Pesan:</label>
+                <input type="date" id="tanggalPesan" name="tanggalPesan" required>
+            </div>
+            <div class="input-group">
+                <label for="durasiMenginap">Durasi Menginap (Hari):</label>
+                <input type="number" id="durasiMenginap" name="durasiMenginap" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group" style="flex: 0 0 100%;">
+                <div class="checkbox-label">
+                    <input type="checkbox" id="includeBreakfast" name="includeBreakfast">
+                    <label for="includeBreakfast">Termasuk Breakfast</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group">
+                <label for="totalBayar">Total Bayar:</label>
+                <input type="number" id="totalBayar" name="totalBayar" readonly>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" id="btnSimpan">Simpan</button>
+            <button type="reset" id="btnBatal">Batal</button>
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            const hargaKamar = {
+                "Standard": 500000,
+                "Deluxe": 750000,
+                "Family": 1000000
+            };
+
+            $('#tipeKamar').change(function () {
+                const tipe = $(this).val();
+                $('#harga').val(hargaKamar[tipe] || 0);
+            });
+
+            $('#btnSimpan').click(function () {
+                const nama = $('#namaPemesan').val();
+                const identitas = $('#nomorIdentitas').val();
+                const jenisKelamin = $('#jenisKelamin').val();
+                const durasi = parseInt($('#durasiMenginap').val());
+                const harga = parseInt($('#harga').val());
+                const breakfast = $('#includeBreakfast').is(':checked');
+
+                if (!nama || !identitas || identitas.length !== 16 || !jenisKelamin || isNaN(durasi) || durasi <= 0) {
+                    alert("Isi data dengan benar!");
+                    return;
+                }
+
+                let total = harga * durasi;
+                if (durasi > 3) total *= 0.9;
+                if (breakfast) total += 80000;
+
+                $('#totalBayar').val(total);
+                alert(`Data berhasil disimpan. Total bayar: Rp ${total}`);
+            });
+        });
+    </script>
+</body>
+</html>
