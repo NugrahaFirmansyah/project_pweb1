@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white text-center py-3">
+        <h1>BEST HOTEL</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="#">Hotel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="kamarDropdown" role="button" data-toggle="dropdown">Kamar</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Deluxe</a>
+                        <a class="dropdown-item" href="#">Reguler</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="fasilitasDropdown" role="button" data-toggle="dropdown">Fasilitas</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Petualangan Alam</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Kolam Renang</a>
+                        <div class="dropdown-submenu dropdown-menu">
+                            <a class="dropdown-item" href="#">Sumber Air Panas</a>
+                            <a class="dropdown-item" href="#">Kolam Anak & Dewasa</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Pusat Kebugaran</a>
+                        <a class="dropdown-item" href="#">Ruang Rapat</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Pesan Sekarang</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Leftbar: Video -->
+            <div class="col-md-4">
+                <h3>Video</h3>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <!-- Main Content -->
+            <div class="col-md-8">
+                <h3>Galeri Kamar</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <img src="https://via.placeholder.com/150" alt="Kamar 1" class="img-fluid">
+                        <p>Deluxe Room</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <img src="https://via.placeholder.com/150" alt="Kamar 2" class="img-fluid">
+                        <p>Reguler Room</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2024 Best Hotel. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
