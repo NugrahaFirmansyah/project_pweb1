@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Hotel Firman Bintang 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background: #555;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            padding: 5px 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: #666;
+        }
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Hotel Firman Bintang 5</h1>
+    </header>
+    <nav>
+        <a href="#jenisKamar">Kelola Jenis Kamar</a>
+        <a href="#fasilitas">Kelola Fasilitas Hotel</a>
+        <a href="#dataPemesanan">Lihat Data Pemesanan</a>
+    </nav>
+    <main>
+        <!-- Kelola Jenis Kamar -->
+        <section id="jenisKamar">
+            <h2>Kelola Jenis Kamar</h2>
+            <form>
+                <label for="namaKamar">Nama Kamar:</label>
+                <input type="text" id="namaKamar" name="namaKamar" disabled>
+                <label for="hargaKamar">Harga Kamar:</label>
+                <input type="text" id="hargaKamar" name="hargaKamar" disabled>
+                <button type="button" disabled>Tambah Jenis Kamar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Kamar</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard Room</td>
+                        <td>Rp 1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Deluxe Room</td>
+                        <td>Rp 1,500,000</td>
+                    </tr>
+                    <tr>
+                        <td>Suite Room</td>
+                        <td>Rp 2,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Luxury Room</td>
+                        <td>Rp 2,500,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Kelola Fasilitas -->
+        <section id="fasilitas">
+            <h2>Kelola Fasilitas Hotel</h2>
+            <form>
+                <label for="namaFasilitas">Nama Fasilitas:</label>
+                <input type="text" id="namaFasilitas" name="namaFasilitas" disabled>
+                <button type="button" disabled>Tambah Fasilitas</button>
+            </form>
+            <ul>
+                <li>Standard Room</li>
+                <td>Free WiFi, Swimming Pool, Gym</td>
+                <li>Deluxe Room</li>
+                <td>Breakfast Included, Free Parking, Spa</td>
+                <li>Suite Room</li>
+                <td>Ocean View, 24/7 Room Service, Airport Shuttle</td>
+                <li>Luxury Room</li>
+                <td>Private Pool, Luxury Suites, Free Breakfas</td>
+            </ul>
+        </section>
+
+        <!-- Lihat Data Pemesanan -->
+        <section id="dataPemesanan">
+            <h2>Lihat Data Pemesanan</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Pemesan</th>
+                        <th>Jenis Kamar</th>
+                        <th>Tanggal Check-in</th>
+                        <th>Tanggal Check-out</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Firman</td>
+                        <td>Deluxe</td>
+                        <td>2025-01-10</td>
+                        <td>2025-01-11</td>
+                        <td>Rp. 1,5000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

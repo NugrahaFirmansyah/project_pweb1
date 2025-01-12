@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Hotel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            transform: scale(1.05);
+        }
+
+        .receipt-container {
+            display: none;
+        }
+
+        .receipt-item {
+            margin-bottom: 15px;
+        }
+
+        .receipt-item span {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button button {
+            background-color: #f44336;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Pemesanan -->
+        <div id="form-container">
+            <h2>Form Pemesanan Hotel</h2>
+            <form id="booking-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Masukkan username" required>
+
+                <label for="checkin-date">Check-in Date:</label>
+                <input type="date" id="checkin-date" required>
+
+                <label for="checkout-date">Check-out Date:</label>
+                <input type="date" id="checkout-date" required>
+
+                <label for="room-type">Jenis Kamar:</label>
+                <select id="room-type" onchange="updateRoomPrice()" required>
+                    <option value="" disabled selected>Pilih kamar</option>
+                    <option value="1000000">Standard Room - Rp1,000,000/malam</option>
+                    <option value="1500000">Deluxe Room - Rp1,500,000/malam</option>
+                    <option value="2000000">Suite Room - Rp2,000,000/malam</option>
+                    <option value="2500000">Luxury Room - Rp2,500,000/malam</option>
+                </select>
+
+                <label for="num-rooms">Jumlah Kamar:</label>
+                <input type="number" id="num-rooms" placeholder="Masukkan jumlah kamar" min="1" required>
+
+                <div id="room-price-display" style="margin-top: 10px; font-weight: bold; color: #6a11cb;"></div>
+
+                <button type="button" onclick="generateReceipt()">Submit</button>
+                 
+                <button type="button" onclick="generateReceipt()"><a href="tampilan.html">Kembali</button></a>
+                
+            </form>
+        </div>
+
+        <!-- Struk Pemesanan -->
+        <div class="receipt-container" id="receipt-container">
+            <h2>Struk Pemesanan</h2>
+            <div class="receipt-item">
+                <span>Username:</span> <span id="receipt-username">-</span>
+            </div>
+            <div class="receipt-item">
+                <span>Check-in Date:</span> <span id="receipt-checkin">-</span>
+            </div>
+            <div class="receipt-item">
+                <span>Check-out Date:</span> <span id="receipt-checkout">-</span>
+            </div>
+            <div class="receipt-item">
+                <span>Jenis Kamar:</span> <span id="receipt-room-type">-</span>
+            </div>
+            <div class="receipt-item">
+                <span>Jumlah Kamar:</span> <span id="receipt-num-rooms">-</span>
+            </div>
+            <div class="receipt-item">
+                <span>Total Harga:</span> <span id="receipt-total-price">-</span>
+            </div>
+            <div class="back-button">
+                <button onclick="resetForm()">Pesan Lagi</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateRoomPrice() {
+            const roomType = document.getElementById("room-type");
+            const selectedPrice = roomType.options[roomType.selectedIndex].value;
+            const display = document.getElementById("room-price-display");
+
+            if (selectedPrice) {
+                display.textContent = `Harga per malam: Rp${parseInt(selectedPrice).toLocaleString("id-ID")}`;
+            } else {
+                display.textContent = "";
+            }
+        }
+
+        function generateReceipt() {
+            const username = document.getElementById("username").value;
+            const checkinDate = new Date(document.getElementById("checkin-date").value);
+            const checkoutDate = new Date(document.getElementById("checkout-date").value);
+            const roomType = document.getElementById("room-type");
+            const roomTypeText = roomType.options[roomType.selectedIndex].text;
+            const roomPrice = parseInt(roomType.value || 0);
+            const numRooms = parseInt(document.getElementById("num-rooms").value || 0);
+
+            if (checkinDate >= checkoutDate) {
+                alert("Tanggal check-out harus lebih besar dari tanggal check-in!");
+                return;
+            }
+
+            // Hitung jumlah malam
+            const duration = (checkoutDate - checkinDate) / (1000 * 60 * 60 * 24);
+            if (duration <= 0) {
+                alert("Durasi menginap harus lebih dari 0 malam!");
+                return;
+            }
+
+            // Hitung total harga
+            const totalPrice = roomPrice * numRooms * duration;
+
+            // Tampilkan data pada struk
+            document.getElementById("receipt-username").textContent = username;
+            document.getElementById("receipt-checkin").textContent = checkinDate.toLocaleDateString("id-ID");
+            document.getElementById("receipt-checkout").textContent = checkoutDate.toLocaleDateString("id-ID");
+            document.getElementById("receipt-room-type").textContent = roomTypeText;
+            document.getElementById("receipt-num-rooms").textContent = numRooms;
+            document.getElementById("receipt-total-price").textContent = `Rp${totalPrice.toLocaleString("id-ID")}`;
+
+            // Sembunyikan form dan tampilkan struk
+            document.getElementById("form-container").style.display = "none";
+            document.getElementById("receipt-container").style.display = "block";
+        }
+
+        function resetForm() {
+            document.getElementById("booking-form").reset();
+            document.getElementById("form-container").style.display = "block";
+            document.getElementById("receipt-container").style.display = "none";
+            document.getElementById("room-price-display").textContent = "";
+        }
+    </script>
+</body>
+</html>

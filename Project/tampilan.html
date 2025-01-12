@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search for hotels Firman.">
+    <meta name="keywords" content="Hotel, Booking, Luxury, Firman Hotel">
+    <meta name="author" content="Hotel Firman">
+    <title>Hotel Firman Bintang 5</title>
+    <style>
+        .center-image {
+            text-align: center;
+        }
+
+        .center-image img {
+            display: inline-block;
+        }
+
+        .deskripsi-hotel {
+            text-align: center;
+            font: Arial, sans-serif;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .deskripsi-hotel p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #00294d;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .login-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-container {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .search-container input,
+        .search-container select,
+        .search-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .hotel-gallery {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            /* Menyelaraskan konten di tengah */
+        }
+
+        .hotel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hotel-gallery img {
+            width: 100%;
+            max-width: 300px;
+            /* Mengatur lebar maksimal */
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        footer {
+            background-color: #00294d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hotel Firman</h1>
+        <button class="menu-toggle">☰</button>
+        <nav class="nav-links">
+            <a href="#jenisKamar">Flights</a>
+            <a href="#hotels">Hotels</a>
+            <a href="#">Car Hire</a>
+        </nav>
+        <button class="login-button">
+            <a href="kamar.html" class="button">Pesan</a>
+        </button>
+    </header>
+    <div class="center-image">
+        <img src="c:\Users\lenov\OneDrive\Pictures\dfaffb27-fded-494f-8e73-159f6fc9acd5_169.jpg" alt="Contoh Gambar"
+            width="90%">
+    </div>
+    <section id="hotels">
+        <div class="deskripsi-hotel">
+            <h2>Selamat Datang di Hotel Firman</h2>
+            <p>Hotel Firman adalah sebuah hotel mewah yang berlokasi strategis di jantung kota, menjadikannya pilihan yang sempurna bagi para tamu yang mencari kenyamanan, kemewahan, dan aksesibilitas. Dengan desain arsitektur yang elegan dan menawan, Hotel Firman menciptakan suasana yang memadukan keindahan klasik dengan sentuhan modern. Setiap kamar dirancang dengan cermat untuk memberikan ruang yang luas, kenyamanan maksimal, serta dilengkapi dengan fasilitas modern seperti sistem hiburan canggih, layanan internet berkecepatan tinggi, dan perlengkapan tidur berkualitas tinggi.
+                Kami juga menyediakan berbagai fasilitas kelas dunia, termasuk restoran mewah yang menyajikan hidangan internasional, kolam renang eksklusif, pusat kebugaran dengan peralatan terkini, serta spa yang menawarkan perawatan relaksasi terbaik. Dengan layanan yang hangat dan profesional, staf kami berkomitmen untuk memenuhi setiap kebutuhan tamu, memastikan pengalaman menginap yang benar-benar tak terlupakan.
+                Baik Anda adalah seorang wisatawan bisnis yang membutuhkan efisiensi dan kenyamanan atau pelancong yang mencari tempat istirahat yang sempurna selama liburan, Hotel Firman hadir sebagai pilihan yang ideal untuk semua keperluan perjalanan Anda.
+            </p>
+        </div>
+    </section>
+
+    <center><h2 id="jenisKamar">Jenis Kamar</h2></center>
+    <div class="hotel-gallery">
+        <div class="hotel-item">
+            <img src="c:\Users\lenov\OneDrive\Pictures\cnn-768x500.webp"
+                alt="Elegant hotel room with a modern interior design.">
+            <h5>Standard Room</h5>
+            <div class="hotel-price">Rp 1,000,000/night</div>
+            <div class="hotel-facilities">Free WiFi, Swimming Pool, Gym</div>
+        </div>
+        <div class="hotel-item">
+            <img src="c:\Users\lenov\OneDrive\Pictures\download.jpeg" alt="Luxurious hotel lobby with grand decor.">
+            <h5>Deluxe Room</h5>
+            <div class="hotel-price">Rp 1,500,000/night</div>
+            <div class="hotel-facilities">Breakfast Included, Free Parking, Spa</div>
+        </div>
+        <div class="hotel-item">
+            <img src="c:\Users\lenov\OneDrive\Pictures\images.jpg" alt="Cozy hotel suite with a scenic view.">
+            <h5>Suite Room</h5>
+            <div class="hotel-price">Rp 2,000,000/night</div>
+            <div class="hotel-facilities">Ocean View, 24/7 Room Service, Airport Shuttle</div>
+        </div>
+        <div class="hotel-item">
+            <img src="c:\Users\lenov\OneDrive\Pictures\tentrem-hotel-Yogyakarta.webp"
+                alt="Modern hotel exterior with night lighting.">
+            <h5>Luxury Room</h5>
+            <div class="hotel-price">Rp 2,500,000/night</div>
+            <div class="hotel-facilities">Private Pool, Luxury Suites, Free Breakfast</div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Hotel Firman. All rights reserved.
+        <br>
+        Follow us:
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a> |
+        <a href="#">Instagram</a>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        const checkin = document.getElementById('checkin');
+        const checkout = document.getElementById('checkout');
+
+        checkin.addEventListener('change', () => {
+            const checkinDate = new Date(checkin.value);
+            const checkoutDate = new Date(checkout.value);
+
+            if (checkinDate >= checkoutDate) {
+                checkout.value = '';
+                alert('Check-out date must be after check-in date.');
+            }
+        });
+    </script>
+</body>
+</html>
